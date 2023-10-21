@@ -1,12 +1,12 @@
 
-body {
+      body {
   font-family: helvetica, arial, sans-serif;
   margin: 2em;
 }
 
 h1 {
-  font-style: italic;
-  color: #ff00d4;
+  font-style: normal;
+  color: #5d3bba;
 }
 
 
@@ -33,7 +33,7 @@ button {
   font-size:150%;
 }
 div{
-  width=100%;
+  width:100%;
   align-items:'center';
 }
 
