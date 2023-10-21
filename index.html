@@ -4,16 +4,14 @@
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js"></script>
     <script src="https://docs.opencv.org/3.4.0/opencv.js" type="text/javascript"></script>
     <script src="https://cdn.plot.ly/plotly-2.24.1.min.js" charset="utf-8"></script>
-    <!--<script defer src="https://pyscript.net/latest/pyscript.js"></script>-->
-    <!--<script type="module" src="vi.js"></script>-->
-    <!--<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
-      -->
+    <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
-    <h1 style="text-align: center">Find your bicycles in images, videos and livestreams!</h1>
+    <h1 style="text-align: center">Altify</h1>
     <div id="select" style="align-items:center">
-        <h2>choose your type of media</h2>
-        <button onclick="selectType('image')">image</button>
+        <h2>Altify is your go-to solution for making the web more inclusive and accessible to all. We're dedicated to ensuring that people with disabilities have equal access to online content. Our mission is to empower content creators, businesses, and web developers to provide meaningful alternative text (alt text) for images, making the internet a more inclusive space!</h2>
+        <h3>Upload your image to get started</h2>
+        <button onclick="selectType('image')">Upload Image</button>
       </div>
       <button onclick="selectType('home')" id="home" style="display: none">home</button>
       <div id ="imagepredict" style="display: none">
@@ -21,9 +19,7 @@
         <input type="file" id="photo" name="photo" accept="image/*" onchange="predictImage(event)">
         <p id="imagePrediction"></p>
       </div>
-  
-  
-        
+   
       </div>
       <script>
         const model =  tf.loadGraphModel('model/model.json');
@@ -74,44 +70,6 @@
       </script>
       
       <script type="css">
-        body {
-    font-family: helvetica, arial, sans-serif;
-    margin: 2em;
-  }
-  
-  h1 {
-    font-style: italic;
-    color: #FF6F00;
-  }
-  
-  
-  video {
-    clear: both;
-    display: block;
-    margin: 10px;
-    background: #000000;
-    width: 640px;
-    height: 480px;
-  }
-  
-  button {
-    padding: 10px;
-    float: left;
-    margin: 5px 3px 5px 10px;
-  }
-  
-  .removed {
-    display: none;
-  }
-  
-  #status {
-    font-size:150%;
-  }
-  div{
-    width=100%;
-    align-items:'center';
-  }
-  
       </script>
       
     </body>
