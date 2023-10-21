@@ -1,2 +1,3 @@
 # altify
-Get accessible text for images! This project is made to increase accesibility. 
+Get accessible text for images!
+Anna, Elizabeth, Esha
