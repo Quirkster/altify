@@ -58,9 +58,12 @@
         
         model.then(function (res) {
           console.log(selectedFile)
-      const example = tf.cast(tf.browser.fromPixels(imgtag),'float32');
-      const prediction = res.predict(example.reshape([-1,224,224,3])).squeeze();
-      console.log("prediction: "+prediction);
+      const fromPixels=tf.browser.fromPixels(imgtag)
+      const input = fromPixels.resizeBilinear([224, 224]).expandDims(0); // Resize to the model's input size
+
+      // Perform object detection and classification
+      const predictions = res.predict(input);
+      console.log("prediction: "+predictions);
       let highestIndex = prediction.argMax().arraySync()
       document.getElementById("imagePrediction").innerText="This image is"+ (highestIndex==0?" ":" not ") + "a bike!"
       console.log(highestIndex)
