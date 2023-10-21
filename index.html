@@ -4,6 +4,8 @@
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js"></script>
     <script src="https://docs.opencv.org/3.4.0/opencv.js" type="text/javascript"></script>
     <script src="https://cdn.plot.ly/plotly-2.24.1.min.js" charset="utf-8"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet@1.0.0"> </script>
+
     <!--<script defer src="https://pyscript.net/latest/pyscript.js"></script>-->
     <!--<script type="module" src="vi.js"></script>-->
     <!--<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
@@ -20,14 +22,32 @@
         <img id="myimage" height="180" width="180">
         <input type="file" id="photo" name="photo" accept="image/*" onchange="predictImage(event)">
         <p id="imagePrediction"></p>
+        <p id="imagePrediction2"></p>
+        <p id="imagePrediction3"></p>
       </div>
   
   
         
       </div>
       <script>
-        const model =  tf.loadGraphModel('model/model.json');
-        predictions=[]
+        const model =  tf.loadGraphModel('hourglass/model.json');
+      CLASS_NAMES=[]
+      const jsonFilePath = 'hourglass/imagenet_class_index.json';
+
+fetch(jsonFilePath)
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error(`Failed to fetch JSON file: ${response.statusText}`);
+    }
+    return response.json();
+  })
+  .then((data) => {
+    CLASS_NAMES=data;
+  })
+  .catch((error) => {
+    console.error('Error:', error);
+  });
+      console.log(CLASS_NAMES[0])
       function selectType(el){
         if (el=="home"){
           document.getElementById("select").style.display="";
@@ -56,22 +76,30 @@
         
         reader.readAsDataURL(selectedFile);
         
-        model.then(function (res) {
-          console.log(selectedFile)
-      const fromPixels=tf.browser.fromPixels(imgtag)
-      const input = fromPixels.resizeBilinear([224, 224]).expandDims(0); // Resize to the model's input size
-
-      // Perform object detection and classification
-      const predictions = res.predict(input);
-      console.log("prediction: "+predictions);
-      let highestIndex = prediction.argMax().arraySync()
-      document.getElementById("imagePrediction").innerText="This image is"+ (highestIndex==0?" ":" not ") + "a bike!"
-      console.log(highestIndex)
+        model.then(async function (res) {
+          
+      mobilenet.load().then(model => {
+    // Classify the image.
+    model.classify(imgtag).then(predictions => {
+      console.log('Predictions: ');
+      console.log(predictions);
+      document.getElementById("imagePrediction").innerText="Most Likely("+Math.floor(predictions[0]["probability"]*100)+"%):"+predictions[0]["className"]
+      document.getElementById("imagePrediction2").innerText="Alternate("+Math.floor(predictions[1]["probability"]*100)+"%):"+predictions[1]["className"]
+      document.getElementById("imagePrediction3").innerText="Alternate("+Math.floor(predictions[2]["probability"]*100)+"%):"+predictions[2]["className"]
+      window.speechSynthesis.speak(new SpeechSynthesisUtterance("This is most likely a "+predictions[0]["className"]));
+      window.speechSynthesis.speak(new SpeechSynthesisUtterance("It also might be a"+predictions[1]["className"]+" or a "+predictions[2]["className"]));
+    });
+  });
+  // Extract results as JavaScript objects
+  
   }, function (err) {
       console.log(err);
   });
   
       }
+
+      
+
         
   
       </script>
