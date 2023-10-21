@@ -9,8 +9,9 @@
   <body>
     <h1 style="text-align: center">Altify</h1>
     <div id="select" style="align-items:center">
-        <h2>Altify is your go-to solution for making the web more inclusive and accessible to all. We're dedicated to ensuring that people with disabilities have equal access to online content. Our mission is to empower content creators, businesses, and web developers to provide meaningful alternative text (alt text) for images, making the internet a more inclusive space.</h2>
-        <button onclick="selectType('image')">image</button>
+        <h2>Altify is your go-to solution for making the web more inclusive and accessible to all. We're dedicated to ensuring that people with disabilities have equal access to online content. Our mission is to empower content creators, businesses, and web developers to provide meaningful alternative text (alt text) for images, making the internet a more inclusive space!</h2>
+        <h3>Upload your image to get started</h2>
+        <button onclick="selectType('image')">Upload Image</button>
       </div>
       <button onclick="selectType('home')" id="home" style="display: none">home</button>
       <div id ="imagepredict" style="display: none">
@@ -18,9 +19,7 @@
         <input type="file" id="photo" name="photo" accept="image/*" onchange="predictImage(event)">
         <p id="imagePrediction"></p>
       </div>
-  
-  
-        
+   
       </div>
       <script>
         const model =  tf.loadGraphModel('model/model.json');

@@ -1,40 +1,46 @@
+html {
+  background: linear-gradient(135deg, #f2da6d 10%, #f99def 60%, #add4f3 100%);
+}
 
-      body {
-  font-family: helvetica, arial, sans-serif;
-  margin: 2em;
+h3 {
+  font-family: 'Tahoma', Arial, sans-serif;
+  font-size: 35px;
+  color: #e744be;
+  text-align: center;
+  margin-top: 60px; 
+  margin-bottom: 30px; 
+}
+
+body {
+  font-family: 'Lato', Arial;
+  font-size: 14px;
+  color: #10243f;
+  margin: 20em 20em; /* Adjust the margin to provide more space on the left and right */
+  font-weight: 100;
+  text-align: center;
 }
 
 h1 {
-  font-style: italic;
-  color: #5dba3b;
+  font-size: 90px;
+  font-family: 'Tahoma', Arial, sans-serif;
+  color: #10243f;
+  margin-top: -2.5em;
+  margin-bottom: 0.4em; /* Adjust the bottom margin for spacing */
 }
 
-
-video {
-  clear: both;
-  display: block;
-  margin: 10px;
-  background: #000000;
-  width: 640px;
-  height: 480px;
+/* CSS to arrange the elements */
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 button {
-  padding: 10px;
-  float: left;
-  margin: 5px 3px 5px 10px;
+  padding: 15px 45px;
+  border-radius: 30px; /* Set border-radius to 50% for a circular shape */
+  background-color: #fd88ef;
+  border: 1px solid #10243f; /* Set the border color to your desired color (e.g., #2e2e2e) */
+  font-family: 'Lato', Arial;
+  font-size: 17px; /* Change the font size */
+  color: #10243f; /* Change the font color */
 }
-
-.removed {
-  display: none;
-}
-
-#status {
-  font-size:150%;
-}
-div{
-  width:100%;
-  align-items:'center';
-}
-
-   
