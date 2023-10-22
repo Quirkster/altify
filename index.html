@@ -3,7 +3,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd@2.0.2"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js"></script>
     <script src="https://docs.opencv.org/3.4.0/opencv.js" type="text/javascript"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet@1.0.0"> </script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd@2.2.3/dist/coco-ssd.min.js"> </script>
     <script src="https://cdn.plot.ly/plotly-2.24.1.min.js" charset="utf-8"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
   </head>
@@ -78,12 +78,31 @@ fetch(jsonFilePath)
         };
         
         reader.readAsDataURL(selectedFile);
-        
+        console
         model.then(async function (res) {
+          cocoSsd.load().then(model => {
+    // detect objects in the image.
+    model.detect(imgtag).then(predictions => {
+      var speechString=""
+      if(predictions.length>0){
+        document.getElementById("imagePrediction").innerText="Contains:  " + predictions[0]["class"] +"("+Math.floor(predictions[0]["score"]*100)+")."
+        speechString+="This image contains a " + predictions[0]["class"]
+      }
+      console.log('Predictions: ', predictions);
+      if(predictions.length>1){
+        document.getElementById("imagePrediction2").innerText="Most likely contains: "
+      }
+      for(i=1;i<predictions.length;i++){
+        document.getElementById("imagePrediction2").innerText+=predictions[i]["class"]+"("+Math.floor(predictions[i]["score"]*100)+")"
+        speechString+= " and " + predictions[i]["class"]
+      }
+      window.speechSynthesis.speak(new SpeechSynthesisUtterance(speechString))
+    });
+  });
           
-      mobilenet.load().then(model => {
+      //mobilenet.load().then(model => {
     // Classify the image.
-    model.classify(imgtag).then(predictions => {
+    /*model.classify(imgtag).then(predictions => {
       console.log('Predictions: ');
       console.log(predictions);
       document.getElementById("imagePrediction").innerText="Most Likely("+Math.floor(predictions[0]["probability"]*100)+"%):"+predictions[0]["className"]
@@ -91,8 +110,8 @@ fetch(jsonFilePath)
       document.getElementById("imagePrediction3").innerText="Alternate("+Math.floor(predictions[2]["probability"]*100)+"%):"+predictions[2]["className"]
       window.speechSynthesis.speak(new SpeechSynthesisUtterance("This is most likely a "+predictions[0]["className"]));
       window.speechSynthesis.speak(new SpeechSynthesisUtterance("It also might be a"+predictions[1]["className"]+" or a "+predictions[2]["className"]));
-    });
-  });
+    });*/
+  //});
   // Extract results as JavaScript objects
   
   }, function (err) {
