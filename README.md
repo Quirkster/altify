@@ -1,7 +1,7 @@
 # Altify
 
 **Web Equality starts here.**
-Our mission: empower content creators, businesses, and web developers to provide meaningful alternative text (alt text) for images that can be read aloud, making the internet a more inclusive space!
+<br>Our mission: empower content creators, businesses, and web developers to provide meaningful alternative text (alt text) for images that can be read aloud, making the internet a more inclusive space!
 
 **What does Altify do?**
 Altify allows users to upload an image and receive an auto-generated and narrated alt text for that image. Our website uses image segmentation to classify objects, and then it reads a sentence out loud explaining what could be in the image.
