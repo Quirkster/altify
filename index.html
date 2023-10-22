@@ -93,19 +93,7 @@ fetch(jsonFilePath)
     });
   });
           
-      //mobilenet.load().then(model => {
-    // Classify the image.
-    /*model.classify(imgtag).then(predictions => {
-      console.log('Predictions: ');
-      console.log(predictions);
-      document.getElementById("imagePrediction").innerText="Most Likely("+Math.floor(predictions[0]["probability"]*100)+"%):"+predictions[0]["className"]
-      document.getElementById("imagePrediction2").innerText="Alternate("+Math.floor(predictions[1]["probability"]*100)+"%):"+predictions[1]["className"]
-      document.getElementById("imagePrediction3").innerText="Alternate("+Math.floor(predictions[2]["probability"]*100)+"%):"+predictions[2]["className"]
-      window.speechSynthesis.speak(new SpeechSynthesisUtterance("This is most likely a "+predictions[0]["className"]));
-      window.speechSynthesis.speak(new SpeechSynthesisUtterance("It also might be a"+predictions[1]["className"]+" or a "+predictions[2]["className"]));
-    });*/
-  //});
-  // Extract results as JavaScript objects
+  
   
   }, function (err) {
       console.log(err);
