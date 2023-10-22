@@ -10,18 +10,25 @@
   <body>
     <h1 style="text-align: center">Altify</h1>
     <div id="select" style="align-items:center">
-        <h2>Altify is your go-to solution for making the web more inclusive and accessible to all. We're dedicated to ensuring that people with disabilities have equal access to online content. Our mission is to empower content creators, businesses, and web developers to provide meaningful alternative text (alt text) for images, making the internet a more inclusive space!</h2>
+        <h2>Web Equality starts here.</h2>
+        <h4>Our mission: empower content creators, businesses, and web developers to provide meaningful alternative text (alt text) for images that can be read aloud, making the internet a more inclusive space!</h4>
         <h3>Upload your image to get started</h2>
         <button onclick="selectType('image')">Upload Image</button>
       </div>
-      <button onclick="selectType('home')" id="home" style="display: none">home</button>
-      <div id ="imagepredict" style="display: none">
-        <img id="myimage" height="180" width="180">
-        <input type="file" id="photo" name="photo" accept="image/*" onchange="predictImage(event)">
-        <p id="imagePrediction"></p>
-        <p id="imagePrediction2"></p>
-        <p id="imagePrediction3"></p>
+      <button onclick="selectType('home')" id="home" style="display: none">Home</button>
+      <div id="imagepredict" style="display: none">
+        <input type="file" id="photo" name="photo" accept="image/*" onchange="predictImage(event)" style="display: none;">
+        <div id="predict" style="display: flex; align-items: center;">
+          <img id="myimage" style="max-height: 360px; max-width: 360px; margin-right: 20px;">
+          <ul style="list-style-type: none; margin-left: 0; padding-left: 10px;"> 
+            <li id="imagePrediction"></li>
+            <li id="imagePrediction2"></li>
+            <li id="imagePrediction3"></li>
+          </ul>
+        </div>
+        <label for="photo" class="file-input-button">Choose Image</label>
       </div>
+      
 
    
       </div>
