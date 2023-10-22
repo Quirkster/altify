@@ -5,6 +5,7 @@
 
 **What does Altify do?**
 <br>Altify allows users to upload an image and receive an auto-generated and narrated alt text for that image. Our website uses image segmentation to classify objects, and then it reads a sentence out loud explaining what could be in the image.
+<br>In this GitHub Repo, you will find HTML, CSS, and JavaScript that uses the Coco SSD Model to predict the top three most likely objects in the image.
 
 **What was our Inspiration?**
 <br>We were inspired to help people who have visual impairments or use screen readers, so we built a program that allowed for them to see and hear the alt text of an image.
