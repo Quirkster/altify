@@ -37,9 +37,47 @@ h1 {
 
 button {
   padding: 15px 45px;
+  margin: 15px 45px;
   border-radius: 30px; /* Set border-radius to 50% for a circular shape */
-  background-color: #fd88ef;
+  background-color: #f790eb;
   border: 1px solid #10243f; /* Set the border color to your desired color (e.g., #2e2e2e) */
+  font-family: 'Lato', Arial;
+  font-size: 17px; /* Change the font size */
+  color: #10243f; /* Change the font color */
+}
+
+
+.file-input-button {
+  display: flex;
+  justify-content: center;
+  padding: 15px 45px;
+  margin: 15px 45px;
+  border-radius: 30px; /* Set border-radius to 50% for a circular shape */
+  background-color:  #f790eb;
+  border: 1px solid #10243f; /* Set the border color to your desired color (e.g., #2e2e2e) */
+  font-family: 'Lato', Arial;
+  font-size: 17px; /* Change the font size */
+  color: #10243f; /* Change the font color */
+}
+
+#predict {
+  display: flex;
+  justify-content: center;
+}
+
+#imagePrediction {
+  font-family: 'Lato', Arial;
+  font-size: 17px; /* Change the font size */
+  color: #10243f; /* Change the font color */
+}
+
+#imagePrediction2 {
+  font-family: 'Lato', Arial;
+  font-size: 17px; /* Change the font size */
+  color: #10243f; /* Change the font color */
+}
+
+#imagePrediction3 {
   font-family: 'Lato', Arial;
   font-size: 17px; /* Change the font size */
   color: #10243f; /* Change the font color */
